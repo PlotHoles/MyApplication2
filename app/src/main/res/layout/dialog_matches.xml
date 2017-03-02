@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialogParentLinear"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <com.sparecode.yaaroz.view.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="Matches"
+        app:customFont="Roboto-Regular.ttf"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_21" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/dialog_matches_viewPager"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/imgPreviousMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:padding="@dimen/dp_5"
+            android:src="@drawable/left_side_icon" />
+
+        <ImageView
+            android:id="@+id/imgNextMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:padding="@dimen/dp_5"
+            android:src="@drawable/right_side_icon" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomTextView">
+        <attr name="customFont" format="string" />
+    </declare-styleable>
+    <declare-styleable name="ParticleView">
+        <attr name="pv_host_text" format="string"></attr>
+        <attr name="pv_host_text_size" format="dimension"></attr>
+        <attr name="pv_particle_text" format="string"></attr>
+        <attr name="pv_particle_text_size" format="dimension"></attr>
+        <attr name="pv_text_color" format="color"></attr>
+        <attr name="pv_background_color" format="color"></attr>
+        <attr name="pv_text_anim_time" format="integer"></attr>
+        <attr name="pv_spread_anim_time" format="integer"></attr>
+        <attr name="pv_host_text_anim_time" format="integer"></attr>
+    </declare-styleable>
+    <declare-styleable name="CircularImageView">
+        <attr name="civ_border" format="boolean" />
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_shadow" format="boolean" />
+        <attr name="civ_shadow_color" format="color" />
+        <attr name="civ_shadow_radius" format="float" />
+    </declare-styleable>
+    <declare-styleable name="RangeBar">
+        <attr name="tickCount" format="integer" />
+        <attr name="tickHeight" format="dimension" />
+        <attr name="barWeight" format="dimension" />
+        <attr name="barColor" format="reference|color" />
+        <attr name="connectingLineWeight" format="dimension" />
+        <attr name="connectingLineColor" format="reference|color" />
+        <attr name="thumbRadius" format="dimension" />
+        <attr name="thumbImageNormal" format="reference" />
+        <attr name="thumbImagePressed" format="reference" />
+        <attr name="thumbColorNormal" format="reference|color" />
+        <attr name="thumbColorPressed" format="reference|color" />
+    </declare-styleable>
+</resources>

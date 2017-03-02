@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/veryLightGrayInMatches">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+
+            >
+
+            <ImageView
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                android:src="@drawable/profilelogoboy1"
+                android:id="@+id/imgMainRoommate"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_5"
+
+                />
+                <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom"
+                 >
+                    <sparecode.com.yaaroz.view.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thomas A"
+                        android:textColor="@color/inSettingDarkblue"
+                        android:textSize="@dimen/sp_17"
+                        android:id="@+id/txtMainNameRoommate"
+                        app:customFont="Roboto-Regular.ttf"
+                        />
+                    <sparecode.com.yaaroz.view.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="To Many to List"
+                        android:textSize="@dimen/sp_13"
+                        android:textColor="@color/veryLightBlueInMatches"
+                        android:id="@+id/txtMainDetail"
+                        app:customFont="Roboto-Regular.ttf"
+                        />
+
+                </LinearLayout>
+
+                 <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="@dimen/dp_15"
+                     android:layout_gravity="center"
+                >
+
+                     <sparecode.com.yaaroz.view.CustomTextView
+                         android:layout_width="30dp"
+                         android:layout_height="30dp"
+                         android:text="42"
+                         android:background="@drawable/shape_roundblue"
+                         android:layout_marginRight="@dimen/dp_10"
+                         android:id="@+id/txtAge42"
+                         android:gravity="center"
+                         app:customFont="Roboto-Regular.ttf"
+                      />
+                     <sparecode.com.yaaroz.view.CustomTextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/m"
+                        android:layout_marginRight="@dimen/dp_21"
+                         android:id="@+id/txtGenderM"
+                         app:customFont="Roboto-Regular.ttf"
+                       />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/chat_icon_gray_1080"
+                    android:layout_marginRight="@dimen/dp_50"
+                    />
+                 <ImageView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:src="@drawable/heart_icon_gray_1080"
+                     android:layout_marginRight="@dimen/dp_30"
+                />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            card_view:cardElevation="@dimen/dp_10"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/dp_10"
+                        >
+                        <sparecode.com.yaaroz.view.CustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mutual :"
+                            android:layout_marginLeft="@dimen/dp_30"
+                            android:textSize="@dimen/sp_17"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:textColor="@color/inSettingDarkblue"
+                            android:id="@+id/txtMutual"
+                            app:customFont="Roboto-Regular.ttf"
+                            />
+
+
+                            <HorizontalScrollView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scrollbars="none"
+                                >
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:id="@+id/linearMutual"
+                                    android:layout_marginLeft="@dimen/dp_30"
+
+                                    >
+                                </LinearLayout>
+                            </HorizontalScrollView>
+                        </LinearLayout>
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:orientation="horizontal"
+                         android:layout_marginTop="@dimen/dp_20"
+                         >
+                         <sparecode.com.yaaroz.view.CustomTextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="Quirks :"
+                             android:layout_marginLeft="@dimen/dp_30"
+                             android:textSize="@dimen/sp_17"
+                             android:layout_marginTop="@dimen/dp_5"
+                             android:textColor="@color/inSettingDarkblue"
+                             android:id="@+id/txtQuirks"
+                             app:customFont="Roboto-Regular.ttf"
+                             />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:id="@+id/linearQuirks"
+                                android:layout_marginLeft="@dimen/dp_40"
+                                android:layout_marginTop="@dimen/dp_8"
+                                >
+
+                            </LinearLayout>
+
+                   </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>

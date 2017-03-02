@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="blacktrans">#AA000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="offWhite">#EEEEEE</color>
+    <color name="darkblue">#1075E9</color>
+    <color name="darkGray">#A19B9B</color>
+    <color name="inSettingDarkblue">#016FDE</color>
+    <color name="forRadiobuttonDarkBlue">#01468B</color>
+    <color name="forRadiobuttonDarkGray">#575757</color>
+    <color name="settingRed">#C14857</color>
+    <color name="profileBgLightGray">#E1DFE0</color>
+    <color name="lightGrayProfile">#888888</color>
+    <color name="veryLightGrayInMatches">#E0DEDF</color>
+    <color name="veryLightBlueInMatches">#5A9EE7</color>
+    <color name="bluedot">#0172E0</color>
+    <color name="black">#000000</color>
+
+</resources>

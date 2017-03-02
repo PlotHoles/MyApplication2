@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Yaaroz</string>
+    <string name="mapApiKey">AIzaSyDUIEyLpjmqVU18RKkJF1Kq1KtDlML_NIE</string>
+    <string name="log_in">Log In</string>
+    <string name="fbKey">1351793224882830</string>
+    <string name="fb_login_protocol_scheme">1351793224882830</string>
+    <string name="show_me">Show Me</string>
+    <string name="nobody_i_want_to_reach_out_first">Nobody,I want to Reach Out First</string>
+    <string name="only_matches_with_mutual_friends">Only Matches With Mutual Friends</string>
+    <string name="everyone">Everyone</string>
+    <string name="who_can_contact_me_about_room_listings">Who can Contact me About Room Listings?</string>
+    <string name="all_matches">All Matches</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="ammar_tahir">Ammar Tahir</string>
+    <string name="m">M</string>
+
+
+    <string-array name="stringselectcity">
+        <item>Select City</item>
+        <item>Pune</item>
+        <item>Kolkata</item>
+        <item>Ahmedabad</item>
+    </string-array>
+
+
+    <string-array name="stringdate">
+        <item>Select Date</item>
+        <item>10/02/16</item>
+        <item>09/08/16</item>
+        <item>05/08/15</item>
+    </string-array>
+
+
+    <string-array name="stringcitygender">
+        <item>Select Gender</item>
+        <item>All Male</item>
+        <item>All Female</item>
+    </string-array>
+
+    <string-array name="stringroommategender">
+        <item>Select  Gender</item>
+        <item>Only Females</item>
+        <item>Only Males</item>
+    </string-array>
+
+</resources>

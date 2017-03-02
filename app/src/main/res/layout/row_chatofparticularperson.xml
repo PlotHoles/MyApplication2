@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <ImageView
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:src="@drawable/profilelogogirl1"
+            android:id="@+id/imgSendPerticularChat"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+        <sparecode.com.yaaroz.view.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_box_left"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="Hey How r u ?"
+            android:layout_weight="1"
+            android:id="@+id/txtSendChat"
+            app:customFont="Roboto-Regular.ttf"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <sparecode.com.yaaroz.view.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_box_left"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="Hey How r u ?"
+            android:layout_weight="1"
+            app:customFont="Roboto-Regular.ttf"
+            android:id="@+id/txtReceiveChat"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:src="@drawable/profilelogoboy1"
+            android:id="@+id/imgReceivePerticularChat"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

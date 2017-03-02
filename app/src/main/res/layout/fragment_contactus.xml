@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Subject"
+        android:background="@color/veryLightGrayInMatches"
+        android:padding="@dimen/dp_10"
+        android:textSize="@dimen/sp_17"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_30"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Email"
+        android:background="@color/veryLightGrayInMatches"
+        android:padding="@dimen/dp_10"
+        android:textSize="@dimen/sp_17"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_30"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint="Message"
+        android:background="@color/veryLightGrayInMatches"
+        android:padding="@dimen/dp_10"
+        android:textSize="@dimen/sp_17"
+        android:gravity="top"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_20"
+        />
+
+        <sparecode.com.yaaroz.view.CustomButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_40"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Send"
+            android:textAllCaps="false"
+            android:textSize="@dimen/sp_17"
+            android:textColor="@color/white"
+            android:background="@color/inSettingDarkblue"
+
+            />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+</LinearLayout>

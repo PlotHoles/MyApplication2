@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item  android:state_selected="true">
+
+        <shape android:shape="rectangle" >
+            <stroke android:color="@color/inSettingDarkblue"
+                android:width="@dimen/dp_1"
+                ></stroke>
+            <solid android:color="@color/inSettingDarkblue"></solid>
+
+        </shape>
+
+    </item>
+    <item
+        android:left="-200dp"
+        android:right="190dp"
+
+        >
+
+        <rotate android:fromDegrees="0">
+        <shape android:shape="rectangle">
+            <stroke
+                android:color="@color/inSettingDarkblue"
+                android:width="@dimen/dp_1"
+                >
+
+            </stroke>
+            <solid android:color="@color/white"></solid>
+
+        </shape>
+
+        </rotate>
+
+    </item>
+
+
+</selector>

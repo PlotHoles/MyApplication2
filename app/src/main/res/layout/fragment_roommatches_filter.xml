@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+
+        >
+        <sparecode.com.yaaroz.view.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Roommate Gender :"
+            android:layout_weight="1"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="@dimen/sp_17"
+
+            />
+
+
+        <Spinner
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_selectroommatchegender"
+            android:spinnerMode="dropdown"
+            android:padding="@dimen/dp_5"
+            android:entries="@array/stringroommategender"
+            android:layout_weight="1"
+            android:id="@+id/spinnerRoommateGender"
+
+            />
+
+
+
+    </LinearLayout>
+
+    <sparecode.com.yaaroz.view.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:textColor="@color/inSettingDarkblue"
+        android:textSize="@dimen/sp_17"
+        android:layout_margin="@dimen/dp_10"
+        />
+
+    <sparecode.com.yaaroz.view.seekbar.RangeSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:id="@+id/rangeSeekbarAge"
+
+        />
+
+    <sparecode.com.yaaroz.view.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lease Length"
+        android:textColor="@color/inSettingDarkblue"
+        android:textSize="@dimen/sp_17"
+        android:layout_margin="@dimen/dp_10"
+        />
+
+    <sparecode.com.yaaroz.view.seekbar.RangeSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:id="@+id/rangeSeekbarLength"
+
+        />
+
+    <sparecode.com.yaaroz.view.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Budget"
+        android:textColor="@color/inSettingDarkblue"
+        android:textSize="@dimen/sp_17"
+        android:layout_margin="@dimen/dp_10"
+        />
+
+    <sparecode.com.yaaroz.view.seekbar.RangeSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:id="@+id/rangeSeekbarBudget"
+
+        />
+
+    <sparecode.com.yaaroz.view.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Available"
+        android:textColor="@color/inSettingDarkblue"
+        android:textSize="@dimen/sp_17"
+        android:layout_margin="@dimen/dp_10"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:gravity="center"
+
+        >
+
+        <sparecode.com.yaaroz.view.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Date"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/roomdetails_cel_icon"
+            android:padding="@dimen/dp_10"
+            android:background="@drawable/shape_rectangleblue"
+            android:gravity="left|center"
+            android:textSize="@dimen/sp_17"
+            />
+
+        <sparecode.com.yaaroz.view.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To"
+            android:padding="@dimen/dp_10"
+            android:textSize="@dimen/sp_17"
+            android:textColor="@color/inSettingDarkblue"
+            />
+
+        <sparecode.com.yaaroz.view.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="End Date"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/roomdetails_cel_icon"
+            android:padding="@dimen/dp_10"
+            android:background="@drawable/shape_rectangleblue"
+            android:gravity="left|center"
+            android:textSize="@dimen/sp_17"
+            />
+
+
+    </LinearLayout>
+
+    <sparecode.com.yaaroz.view.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Furnished Bedroom"
+        android:textColor="@color/inSettingDarkblue"
+        android:textSize="@dimen/sp_17"
+        android:layout_margin="@dimen/dp_10"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Preferance"
+            android:layout_weight="1"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            />
+
+    </RadioGroup>
+
+    <sparecode.com.yaaroz.view.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bathroom"
+        android:textColor="@color/inSettingDarkblue"
+        android:textSize="@dimen/sp_17"
+        android:layout_margin="@dimen/dp_10"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Preferance"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            />
+
+    </RadioGroup>
+
+    <sparecode.com.yaaroz.view.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Smoking Allowed"
+        android:textColor="@color/inSettingDarkblue"
+        android:textSize="@dimen/sp_17"
+        android:layout_margin="@dimen/dp_10"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Preferance"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            />
+
+    </RadioGroup>
+
+    <sparecode.com.yaaroz.view.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pets Allowed"
+        android:textColor="@color/inSettingDarkblue"
+        android:textSize="@dimen/sp_17"
+        android:layout_margin="@dimen/dp_10"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Preferance"
+            android:textColor="@color/txt_bluegray_radiobutton"
+            android:layout_weight="1"
+            android:button="@drawable/shape_unfill_selectedornot"
+            android:drawablePadding="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_10"
+            />
+
+    </RadioGroup>
+
+    <sparecode.com.yaaroz.view.CustomButton
+        android:layout_width="210dp"
+        android:layout_height="@dimen/dp_40"
+        android:text="Continue"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_30"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:background="@drawable/bluerectanglebox_radious"
+        android:textSize="@dimen/sp_17"
+        android:textAllCaps="false"
+        />
+    <sparecode.com.yaaroz.view.CustomButton
+        android:layout_width="210dp"
+        android:layout_height="@dimen/dp_40"
+        android:text="Reset"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:background="@drawable/bluerectanglebox_radious"
+        android:textSize="@dimen/sp_17"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>
+</ScrollView>
