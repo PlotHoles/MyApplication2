@@ -38,6 +38,7 @@ public class RoommatchesFilterFragment extends BaseFragment {
     @Override
     public void setToolbarForFragment() {
         ((BaseActivity) getActivity()).getAppbar().setVisibility(View.VISIBLE);
+        ((BaseActivity) getActivity()).getTxtTitle().setText("Filters");
     }
 
     @Override

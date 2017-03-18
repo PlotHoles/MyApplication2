@@ -19,6 +19,7 @@
 
         <activity
             android:name="com.sparecode.yaaroz.activity.MainActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

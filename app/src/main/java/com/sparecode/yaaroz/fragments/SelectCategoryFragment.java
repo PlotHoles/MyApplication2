@@ -32,5 +32,6 @@ public class SelectCategoryFragment extends BaseFragment {
     @Override
     public void setToolbarForFragment() {
         ((BaseActivity) getActivity()).getAppbar().setVisibility(View.VISIBLE);
+        ((BaseActivity) getActivity()).getTxtTitle().setText("Let's Get Started");
     }
 }
