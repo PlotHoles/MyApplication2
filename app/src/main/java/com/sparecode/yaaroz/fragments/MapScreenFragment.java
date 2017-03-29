@@ -27,21 +27,24 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.clustering.Cluster;
 import com.google.maps.android.clustering.ClusterManager;
 import com.sparecode.yaaroz.R;
 import com.sparecode.yaaroz.activity.BaseActivity;
 import com.sparecode.yaaroz.dialog.DialogMatches;
 import com.sparecode.yaaroz.interfaces.LocationProvider;
 import com.sparecode.yaaroz.location.LocationHelper;
+import com.sparecode.yaaroz.transformation.CustomClusterRenderer;
 import com.sparecode.yaaroz.utils.DebugLog;
 import com.sparecode.yaaroz.utils.MyItem;
 import com.sparecode.yaaroz.view.CircularImageView;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -53,7 +56,7 @@ import static com.sparecode.yaaroz.R.id.map;
  * Created by master on 02-01-2017.
  */
 
-public class MapScreenFragment extends BaseFragment implements OnMapReadyCallback, LocationProvider {
+public class MapScreenFragment extends BaseFragment implements OnMapReadyCallback, LocationProvider, ClusterManager.OnClusterClickListener<MyItem>, ClusterManager.OnClusterItemClickListener<MyItem> {
 
 
     @Bind(R.id.mapLayout)
@@ -67,6 +70,7 @@ public class MapScreenFragment extends BaseFragment implements OnMapReadyCallbac
     private View view;
     private LocationHelper locationHelper;
     private GoogleMap googleMap;
+
 
     @Nullable
     @Override
@@ -125,16 +129,39 @@ public class MapScreenFragment extends BaseFragment implements OnMapReadyCallbac
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         if (previousLatLng == null) {
             previousLatLng = latLng;
-            addMarker(previousLatLng);
+            for (int i = 0; i < 10; i++) {
+                addMarker(getRandomLocation(previousLatLng, 500));
+            }
+            mClusterManager.setRenderer(new CustomClusterRenderer(getActivity(), googleMap, mClusterManager));
+            mClusterManager.cluster();
+
         } else {
             if (previousLatLng.latitude == location.getLatitude() && previousLatLng.longitude == location.getLongitude()) {
                 return;
             } else {
-                addMarker(latLng);
-
-
+               /* for (int i = 0; i < 10; i++) {
+                    addItems(getRandomLocation(latLng, 50));
+                }*/
+                //addMarker(latLng);
             }
         }
+    }
+
+    private void setUpClusterer(LatLng latLng) {
+        // Position the map.
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+
+        // Initialize the manager with the context and the map.
+        // (Activity extends context, so we can pass 'this' in the constructor.)
+
+
+        // Point the map's listeners at the listeners implemented by the cluster
+        // manager.
+        googleMap.setOnCameraIdleListener(mClusterManager);
+        googleMap.setOnMarkerClickListener(mClusterManager);
+
+        // Add cluster items (markers) to the cluster manager.
+        addItems(latLng);
     }
 
     @OnClick(R.id.fabMapArrowIcon)
@@ -152,11 +179,13 @@ public class MapScreenFragment extends BaseFragment implements OnMapReadyCallbac
 
     private void addMarker(final LatLng latLng) {
 
+        mClusterManager = new ClusterManager<MyItem>(getActivity(), googleMap);
+        //mClusterManager.setRenderer(new MyClusterRenderer(getActivity(), googleMap, mClusterManager));
 
         final View markerView = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.layout_marker, null);
         final CircularImageView userImage = (CircularImageView) markerView.findViewById(R.id.imgMarker);
 
-        Picasso.with(getActivity()).load("https://fakeimg.pl/300/").into(new Target() {
+      /*  Picasso.with(getActivity()).load("https://fakeimg.pl/300/").into(new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                 userImage.setImageBitmap(bitmap);
@@ -176,10 +205,9 @@ public class MapScreenFragment extends BaseFragment implements OnMapReadyCallbac
 
             }
         });
+*/
 
-
-        mClusterManager = new ClusterManager<MyItem>(getActivity(), googleMap);
-
+        setUpClusterer(latLng);
 
 /*        marker = googleMap.addMarker(new MarkerOptions()
                 .position(latLng));*/
@@ -196,6 +224,48 @@ public class MapScreenFragment extends BaseFragment implements OnMapReadyCallbac
         googleMap.animateCamera(cameraUpdate);
     }
 
+    public LatLng getRandomLocation(LatLng point, int radius) {
+
+        List<LatLng> randomPoints = new ArrayList<>();
+        List<Float> randomDistances = new ArrayList<>();
+        Location myLocation = new Location("");
+        myLocation.setLatitude(point.latitude);
+        myLocation.setLongitude(point.longitude);
+
+        //This is to generate 10 random points
+        for (int i = 0; i < 10; i++) {
+            double x0 = point.latitude;
+            double y0 = point.longitude;
+
+            Random random = new Random();
+
+            // Convert radius from meters to degrees
+            double radiusInDegrees = radius / 111000f;
+
+            double u = random.nextDouble();
+            double v = random.nextDouble();
+            double w = radiusInDegrees * Math.sqrt(u);
+            double t = 2 * Math.PI * v;
+            double x = w * Math.cos(t);
+            double y = w * Math.sin(t);
+
+            // Adjust the x-coordinate for the shrinking of the east-west distances
+            double new_x = x / Math.cos(y0);
+
+            double foundLatitude = new_x + x0;
+            double foundLongitude = y + y0;
+            LatLng randomLatLng = new LatLng(foundLatitude, foundLongitude);
+            randomPoints.add(randomLatLng);
+            Location l1 = new Location("");
+            l1.setLatitude(randomLatLng.latitude);
+            l1.setLongitude(randomLatLng.longitude);
+            randomDistances.add(l1.distanceTo(myLocation));
+        }
+        //Get nearest point to the centre
+        int indexOfNearestPointToCentre = randomDistances.indexOf(Collections.min(randomDistances));
+        return randomPoints.get(indexOfNearestPointToCentre);
+    }
+
     private void addItems(LatLng latLng) {
 
         // Set some lat/lng coordinates to start with.
@@ -204,7 +274,7 @@ public class MapScreenFragment extends BaseFragment implements OnMapReadyCallbac
 
         // Add ten cluster items in close proximity, for purposes of this example.
         for (int i = 0; i < 10; i++) {
-            double offset = i / 60d;
+            double offset = i / 160d;
             lat = latLng.latitude + offset;
             lng = latLng.longitude + offset;
             MyItem offsetItem = new MyItem(lat, lng);
@@ -259,5 +329,15 @@ public class MapScreenFragment extends BaseFragment implements OnMapReadyCallbac
         view.draw(canvas);
 
         return bitmap;
+    }
+
+    @Override
+    public boolean onClusterClick(Cluster<MyItem> cluster) {
+        return false;
+    }
+
+    @Override
+    public boolean onClusterItemClick(MyItem myItem) {
+        return false;
     }
 }

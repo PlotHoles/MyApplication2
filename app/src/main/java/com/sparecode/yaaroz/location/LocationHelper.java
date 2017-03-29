@@ -1,7 +1,6 @@
 package com.sparecode.yaaroz.location;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -18,8 +18,6 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-
-
 import com.sparecode.yaaroz.interfaces.LocationProvider;
 import com.sparecode.yaaroz.utils.DebugLog;
 
@@ -52,7 +50,7 @@ public class LocationHelper implements
                     .build();
             doLocationConnect();
         } else {
-            ((Activity) mContext).finish();
+            //((Activity) mContext).finish();
         }
     }
 
@@ -84,12 +82,8 @@ public class LocationHelper implements
 
     private boolean isGooglePlayServicesAvailable() {
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(mContext);
-        if (ConnectionResult.SUCCESS == status) {
-            return true;
-        } else {
-            GooglePlayServicesUtil.getErrorDialog(status, (Activity) mContext, 0).show();
-            return false;
-        }
+        //GooglePlayServicesUtil.getErrorDialog(status, (Activity) mContext, 0).show();
+        return ConnectionResult.SUCCESS == status;
     }
 
     @Override
@@ -114,6 +108,7 @@ public class LocationHelper implements
     public void onLocationChanged(Location location) {
         //DebugLog.e("LOCATION:" + location);
         mCurrentLocation = location;
+        Toast.makeText(mContext, "LCOATION:" + location, Toast.LENGTH_SHORT).show();
         locationProvider.onNewLcoationReceived(location);
     }
 

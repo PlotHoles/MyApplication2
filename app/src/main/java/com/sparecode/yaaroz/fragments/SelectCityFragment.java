@@ -12,8 +12,12 @@ import android.view.ViewGroup;
 import com.sparecode.yaaroz.R;
 import com.sparecode.yaaroz.activity.BaseActivity;
 import com.sparecode.yaaroz.adapter.RecyclerAdapterCity;
+import com.sparecode.yaaroz.dialog.SweetAlertDialog;
+import com.sparecode.yaaroz.model.CityData;
+import com.sparecode.yaaroz.model.CityWrapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -22,12 +26,14 @@ import butterknife.ButterKnife;
  * Created by prima on 24/1/17.
  */
 
-public class SelectCityFragment extends BaseFragment {
+public class SelectCityFragment extends BaseFragment implements SelectCityBackend.CityProvider, RecyclerAdapterCity.onCitySelected {
 
     ArrayList<Drawable> drawables;
     ArrayList<String> strings;
     @Bind(R.id.recyclerCityView)
     RecyclerView recyclerCityView;
+    private SelectCityBackend selectCityBackend;
+    List<CityData> cityDataList;
 
     @Nullable
     @Override
@@ -36,9 +42,8 @@ public class SelectCityFragment extends BaseFragment {
 
 
         drawables = new ArrayList<>();
-        strings=new ArrayList<>();
+        strings = new ArrayList<>();
         ButterKnife.bind(this, view);
-
 
 
         return view;
@@ -65,14 +70,39 @@ public class SelectCityFragment extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
+    RecyclerAdapterCity recyclerAdapterCity;
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        cityDataList = new ArrayList<>();
 
-        RecyclerAdapterCity recyclerAdapterCity=new RecyclerAdapterCity(drawables);
-        recyclerCityView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerAdapterCity = new RecyclerAdapterCity(cityDataList, this);
+        recyclerCityView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         displayCity();
         recyclerCityView.setAdapter(recyclerAdapterCity);
+        selectCityBackend = new SelectCityBackend(getActivity(), this);
+    }
 
+    @Override
+    public void onCityReceive(CityWrapper cityWrapper) {
+        if (getActivity() != null) {
+            cityDataList.addAll(cityWrapper.getData());
+            recyclerAdapterCity.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onFailure(String msg) {
+        if (getActivity() != null) {
+            new SweetAlertDialog(getActivity()).setTitleText("" + msg).show();
+        }
+    }
+
+    @Override
+    public void onCitySelected(CityData cityData) {
+        if (getActivity() != null) {
+            new SweetAlertDialog(getActivity()).setTitleText("" + cityData.getNCityId()).show();
+        }
     }
 }

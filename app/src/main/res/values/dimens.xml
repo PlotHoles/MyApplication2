@@ -39,4 +39,9 @@
     <dimen name="dp_29">29dp</dimen>
     <dimen name="dp_17">17dp</dimen>
     <dimen name="dp_16">16dp</dimen>
+    <dimen name="alert_width">290dp</dimen>
+
+    <dimen name="common_circle_width">3dp</dimen>
+
+    <dimen name="progress_circle_radius">34dp</dimen>
 </resources>

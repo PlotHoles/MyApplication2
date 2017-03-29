@@ -41,10 +41,11 @@ public class SplashFragment extends BaseFragment {
         pv1.setOnParticleAnimListener(new ParticleView.ParticleAnimListener() {
             @Override
             public void onAnimationEnd() {
-                //((BaseActivity) getActivity()).openLoginScreen();
+
                 if (getActivity() != null) {
+                    ((BaseActivity) getActivity()).openLoginScreen();
                     //((BaseActivity) getActivity()).openMapScreen();
-                    ((BaseActivity) getActivity()).openMapScreen();
+                    //((BaseActivity) getActivity()).openMapScreen();
                 }
             }
         });

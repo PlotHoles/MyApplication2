@@ -26,7 +26,7 @@
         <attr name="tickCount" format="integer" />
         <attr name="tickHeight" format="dimension" />
         <attr name="barWeight" format="dimension" />
-        <attr name="barColor" format="reference|color" />
+        <attr name="barColor" format="color" />
         <attr name="connectingLineWeight" format="dimension" />
         <attr name="connectingLineColor" format="reference|color" />
         <attr name="thumbRadius" format="dimension" />
@@ -34,5 +34,27 @@
         <attr name="thumbImagePressed" format="reference" />
         <attr name="thumbColorNormal" format="reference|color" />
         <attr name="thumbColorPressed" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="Rotate3dAnimation">
+
+
+        <attr name="rollType" format="enum">
+
+            <enum name="x" value="0" />
+
+            <enum name="y" value="1" />
+
+            <enum name="z" value="2" />
+
+        </attr>
+
+        <attr name="fromDeg" format="float" />
+
+        <attr name="toDeg" format="float" />
+
+        <attr name="pivotX" format="fraction" />
+
+        <attr name="pivotY" format="fraction" />
+
     </declare-styleable>
 </resources>
