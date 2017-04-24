@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.sparecode.yaaroz.view.CustomTextView
+        android:id="@+id/txtQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:padding="@dimen/dp_5"
+        android:textColor="#0074E5"
+        android:textSize="@dimen/sp_18" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupAnswers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioAns1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@drawable/blueradiobuttonselector"
+
+            android:padding="@dimen/dp_5" />
+
+        <RadioButton
+            android:id="@+id/radioAns2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@drawable/blueradiobuttonselector"
+            android:padding="@dimen/dp_5" />
+
+        <RadioButton
+            android:id="@+id/radioAns3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@drawable/blueradiobuttonselector"
+            android:padding="@dimen/dp_5" />
+    </RadioGroup>
+</LinearLayout>

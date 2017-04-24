@@ -4,10 +4,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Sanket on 3/27/2017.
+ * Created by Sanket on 3/30/2017.
  */
 
-public class User {
+public class UserCitySelectionWrapper {
+
+
     @SerializedName("status")
     @Expose
     private Integer status;
@@ -19,7 +21,7 @@ public class User {
     private String time;
     @SerializedName("data")
     @Expose
-    private UserData data;
+    private UserCitySelectionData data;
 
     public Integer getStatus() {
         return status;
@@ -45,11 +47,11 @@ public class User {
         this.time = time;
     }
 
-    public UserData getData() {
+    public UserCitySelectionData getData() {
         return data;
     }
 
-    public void setData(UserData data) {
+    public void setData(UserCitySelectionData data) {
         this.data = data;
     }
 

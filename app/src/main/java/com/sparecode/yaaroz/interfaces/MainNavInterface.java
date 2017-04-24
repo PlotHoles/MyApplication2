@@ -24,7 +24,7 @@ public interface MainNavInterface {
 
     void openEditProfilePage();
 
-    void openSelectCity();
+    void openSelectCity(boolean isFromLogin);
 
     void openRecentChat(RecentChatData recentChatData);
 
@@ -41,4 +41,5 @@ public interface MainNavInterface {
     void openRoommateMatchesFiler();
 
     void openFavoriteScreen();
+    void openCompleteProfileFragment();
 }

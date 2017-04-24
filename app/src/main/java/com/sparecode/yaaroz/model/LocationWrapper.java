@@ -3,11 +3,13 @@ package com.sparecode.yaaroz.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
- * Created by Sanket on 3/27/2017.
+ * Created by Sanket on 4/10/2017.
  */
 
-public class User {
+public class LocationWrapper {
     @SerializedName("status")
     @Expose
     private Integer status;
@@ -19,7 +21,7 @@ public class User {
     private String time;
     @SerializedName("data")
     @Expose
-    private UserData data;
+    private List<LocationData> data = null;
 
     public Integer getStatus() {
         return status;
@@ -45,13 +47,11 @@ public class User {
         this.time = time;
     }
 
-    public UserData getData() {
+    public List<LocationData> getData() {
         return data;
     }
 
-    public void setData(UserData data) {
+    public void setData(List<LocationData> data) {
         this.data = data;
     }
-
-
 }

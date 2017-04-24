@@ -7,9 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
 import com.sparecode.yaaroz.R;
 import com.sparecode.yaaroz.activity.BaseActivity;
+import com.sparecode.yaaroz.database.YaarozDatabaseHelper;
+import com.sparecode.yaaroz.model.User;
 import com.sparecode.yaaroz.utils.ParticleView;
+import com.sparecode.yaaroz.utils.Prefs;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +28,7 @@ public class SplashFragment extends BaseFragment {
     @Bind(R.id.pv_1)
     ParticleView pv1;
     private View view;
+    private YaarozDatabaseHelper yaarozDatabaseHelper;
 
     @Nullable
     @Override
@@ -37,13 +42,23 @@ public class SplashFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         pv1.startAnim();
-
+        yaarozDatabaseHelper = new YaarozDatabaseHelper(getActivity());
         pv1.setOnParticleAnimListener(new ParticleView.ParticleAnimListener() {
             @Override
             public void onAnimationEnd() {
 
                 if (getActivity() != null) {
-                    ((BaseActivity) getActivity()).openLoginScreen();
+                    if (getUser() != null) {
+                        //mainNavInterface.openSelectCategoryScreen();
+                        if (yaarozDatabaseHelper.isUserHasSelectedCity(getUser().getData().getId())) {
+                            mainNavInterface.openListARoom();
+                        } else {
+                            mainNavInterface.openSelectCity(true);
+                        }
+                    } else {
+                        ((BaseActivity) getActivity()).openLoginScreen();
+                    }
+                    //((BaseActivity) getActivity()).openSelectCity();
                     //((BaseActivity) getActivity()).openMapScreen();
                     //((BaseActivity) getActivity()).openMapScreen();
                 }
@@ -76,6 +91,12 @@ public class SplashFragment extends BaseFragment {
 
     }
 
+    private User user;
+
+    private User getUser() {
+        user = new Gson().fromJson(Prefs.getString("user", ""), User.class);
+        return user;
+    }
 
     @Override
     public void setToolbarForFragment() {

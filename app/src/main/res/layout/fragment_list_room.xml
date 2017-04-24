@@ -1,99 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-
-    >
-<LinearLayout
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-        <sparecode.com.yaaroz.view.CustomTextView
+        <com.sparecode.yaaroz.view.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_5"
             android:text="List a Room"
             android:textColor="@color/inSettingDarkblue"
             android:textSize="@dimen/sp_17"
-            android:layout_marginLeft="@dimen/dp_15"
-            app:customFont="Roboto-Regular.ttf"
-            android:layout_marginTop="@dimen/dp_5"
-            />
+            app:customFont="Roboto-Regular.ttf" />
 
-        <sparecode.com.yaaroz.view.CustomTextView
+        <com.sparecode.yaaroz.view.CustomTextView
+            android:id="@+id/txtSelectCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="Select City"
-            app:customFont="Roboto-Regular.ttf"
-            android:id="@+id/txtSelectCity"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
             android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Select City"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
 
         <Spinner
-                    android:id="@+id/spinnerSelectCity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:background="@drawable/spinner_selectroommatchegender"
-                    android:spinnerMode="dropdown"
-                    android:layout_marginLeft="@dimen/dp_15"
-                    android:layout_marginRight="@dimen/dp_15"
-                    android:layout_weight="1"
-                    android:padding="@dimen/dp_10"
-                    android:entries="@array/stringselectcity"
-            />
+            android:id="@+id/spinnerSelectCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_selectroommatchegender"
+            android:entries="@array/stringselectcity"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:spinnerMode="dropdown" />
 
-        <sparecode.com.yaaroz.view.CustomTextView
+        <com.sparecode.yaaroz.view.CustomTextView
+            android:id="@+id/txtSelectLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="Address"
-            app:customFont="Roboto-Regular.ttf"
-            android:id="@+id/txtAddress"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
             android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Select Location"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
+
+            />
+
+        <Spinner
+            android:id="@+id/spinnerSelectLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_selectroommatchegender"
+            android:entries="@array/stringselectcity"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:spinnerMode="dropdown" />
+
+
+        <com.sparecode.yaaroz.view.CustomTextView
+            android:id="@+id/txtAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Address"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
 
         <AutoCompleteTextView
+            android:id="@+id/AutoCompletetxtAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address"
-            android:background="@drawable/shape_rectangleblack"
             android:layout_marginLeft="@dimen/dp_15"
             android:layout_marginRight="@dimen/dp_15"
-            android:padding="@dimen/dp_10"
-            android:id="@+id/AutoCompletetxtAddress"
-            />
+            android:background="@drawable/shape_rectangleblack"
+            android:hint="Address"
+            android:padding="@dimen/dp_10" />
 
 
-        <sparecode.com.yaaroz.view.CustomTextView
+        <com.sparecode.yaaroz.view.CustomTextView
+            android:id="@+id/txtPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="Photo ( 0 )"
-            app:customFont="Roboto-Regular.ttf"
-            android:id="@+id/txtPhoto"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
             android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Photo ( 0 )"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
 
@@ -102,182 +124,177 @@
             android:layout_height="wrap_content"
 
             >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
 
-                </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
         </HorizontalScrollView>
-        <sparecode.com.yaaroz.view.CustomButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Add"
-            android:background="@drawable/shape_rectangleblack"
-            android:layout_marginLeft="@dimen/dp_15"
-            android:padding="@dimen/dp_10"
-            android:gravity="left|center"
-            android:id="@+id/CustomBtnAdd"
-                />
 
-        <sparecode.com.yaaroz.view.CustomTextView
+        <com.sparecode.yaaroz.view.CustomButton
+            android:id="@+id/CustomBtnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="Room Description"
-            app:customFont="Roboto-Regular.ttf"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:background="@drawable/shape_rectangleblack"
+            android:gravity="left|center"
+            android:hint="Add"
+            android:padding="@dimen/dp_10" />
+
+        <com.sparecode.yaaroz.view.CustomTextView
             android:id="@+id/txtDescription"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Room Description"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
 
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:background="@drawable/shape_rectangleblack"
             android:hint="Add More Details Here"
-            android:background="@drawable/shape_rectangleblack"
-            android:layout_marginLeft="@dimen/dp_15"
-            android:layout_marginRight="@dimen/dp_15"
-            android:padding="@dimen/dp_10"
-            />
+            android:padding="@dimen/dp_10" />
 
-        <sparecode.com.yaaroz.view.CustomTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="Rent Per Month"
-            app:customFont="Roboto-Regular.ttf"
+        <com.sparecode.yaaroz.view.CustomTextView
             android:id="@+id/txtRent"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Rent Per Month"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_rectangleblack"
             android:layout_marginLeft="@dimen/dp_15"
             android:layout_marginRight="@dimen/dp_15"
-            android:padding="@dimen/dp_10"
-            />
+            android:background="@drawable/shape_rectangleblack"
+            android:padding="@dimen/dp_10" />
 
-        <sparecode.com.yaaroz.view.CustomTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="Date Available"
-            app:customFont="Roboto-Regular.ttf"
+        <com.sparecode.yaaroz.view.CustomTextView
             android:id="@+id/txtDate"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Date Available"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
 
         <Spinner
-                    android:id="@+id/spinnerDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:background="@drawable/spinner_selectroommatchegender"
-                    android:spinnerMode="dropdown"
-                    android:layout_marginLeft="@dimen/dp_15"
-                    android:layout_marginRight="@dimen/dp_15"
-                    android:layout_weight="1"
-                    android:padding="@dimen/dp_10"
-                    android:entries="@array/stringdate"
+            android:id="@+id/spinnerDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_selectroommatchegender"
+            android:entries="@array/stringdate"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:spinnerMode="dropdown"
 
             />
 
-        <sparecode.com.yaaroz.view.CustomTextView
+        <com.sparecode.yaaroz.view.CustomTextView
+            android:id="@+id/txtNumRoommate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="# of Roommates"
-            app:customFont="Roboto-Regular.ttf"
-            android:id="@+id/txtNumRoommate"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
             android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="# of Roommates"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Roommates"
-            android:background="@drawable/shape_rectangleblack"
             android:layout_marginLeft="@dimen/dp_15"
             android:layout_marginRight="@dimen/dp_15"
-            android:padding="@dimen/dp_10"
-            />
+            android:background="@drawable/shape_rectangleblack"
+            android:hint="Roommates"
+            android:padding="@dimen/dp_10" />
 
-        <sparecode.com.yaaroz.view.CustomTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="Gender of current Roommates"
-            app:customFont="Roboto-Regular.ttf"
+        <com.sparecode.yaaroz.view.CustomTextView
             android:id="@+id/txtGender"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
-            android:layout_marginLeft="@dimen/dp_10"
-
-            />
-        <Spinner
-                    android:id="@+id/spinnerGender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:background="@drawable/spinner_selectroommatchegender"
-                    android:spinnerMode="dropdown"
-                    android:layout_marginLeft="@dimen/dp_15"
-                    android:layout_marginRight="@dimen/dp_15"
-                    android:layout_weight="1"
-                    android:padding="@dimen/dp_10"
-                    android:entries="@array/stringcitygender"
-            />
-
-        <sparecode.com.yaaroz.view.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/shape_bluedot"
-            android:text="Lease Length"
-            app:customFont="Roboto-Regular.ttf"
-            android:id="@+id/txtLength"
-            android:padding="@dimen/dp_5"
-            android:textSize="17sp"
-            android:textColor="@color/inSettingDarkblue"
-            android:drawablePadding="@dimen/dp_20"
             android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Gender of current Roommates"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
-        <SeekBar
+
+        <Spinner
+            android:id="@+id/spinnerGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/LeaseLength"
-            android:thumb="@drawable/custom_radiobutton_sel_round_background"
-            android:indeterminate="false"
-            android:layout_margin="@dimen/dp_20"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_selectroommatchegender"
+            android:entries="@array/stringcitygender"
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:spinnerMode="dropdown" />
+
+        <com.sparecode.yaaroz.view.CustomTextView
+            android:id="@+id/txtLength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_20"
+            android:drawableStart="@drawable/shape_bluedot"
+            android:padding="@dimen/dp_5"
+            android:text="Lease Length"
+            android:textColor="@color/inSettingDarkblue"
+            android:textSize="17sp"
+            app:customFont="Roboto-Regular.ttf"
 
             />
 
+        <SeekBar
+            android:id="@+id/LeaseLength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_20"
+            android:indeterminate="false"
+            android:thumb="@drawable/custom_radiobutton_sel_round_background"
 
-
-</LinearLayout>
+            />
+    </LinearLayout>
 </ScrollView>

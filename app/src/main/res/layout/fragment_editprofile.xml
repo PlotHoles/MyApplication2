@@ -24,6 +24,7 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <ImageView
+            android:id="@+id/imgEdtProfilePic"
             android:layout_width="@dimen/dp_80"
             android:layout_height="@dimen/dp_80"
             android:layout_gravity="center"
@@ -50,25 +51,30 @@
             android:orientation="horizontal">
 
             <com.sparecode.yaaroz.view.CustomEditText
-                android:id="@+id/customEditText"
+                android:id="@+id/edtEditFname"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_5"
                 android:layout_weight="1"
                 android:background="@drawable/blueradiusrectangle"
+                android:ellipsize="end"
                 android:hint="First Name"
+                android:lines="1"
                 android:padding="@dimen/dp_10"
                 android:textColor="#8E8E8E"
                 android:textColorHint="#8E8E8E"
                 android:textSize="@dimen/sp_16" />
 
             <com.sparecode.yaaroz.view.CustomEditText
+                android:id="@+id/edtEditLname"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_5"
                 android:layout_weight="1"
                 android:background="@drawable/blueradiusrectangle"
+                android:ellipsize="end"
                 android:hint="Last Name"
+                android:lines="1"
                 android:padding="@dimen/dp_10"
                 android:textColor="#8E8E8E"
                 android:textColorHint="#8E8E8E"
@@ -89,10 +95,13 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <com.sparecode.yaaroz.view.CustomEditText
+            android:id="@+id/edtEditEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_5"
             android:background="@drawable/blueradiusrectangle"
+            android:editable="false"
+            android:focusable="false"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="@dimen/dp_10"
@@ -135,6 +144,7 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <RadioGroup
+            android:id="@+id/radioGroupGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
@@ -142,6 +152,7 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/radioEditMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_10"
@@ -150,6 +161,7 @@
                 android:text="Male" />
 
             <RadioButton
+                android:id="@+id/radioEditFeMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_10"
@@ -173,6 +185,7 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <RadioGroup
+            android:id="@+id/radioGroupSmoking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
@@ -180,6 +193,7 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/radioSmokingYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_10"
@@ -188,6 +202,7 @@
                 android:text="Yes" />
 
             <RadioButton
+                android:id="@+id/radioSmokingNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_10"
@@ -211,6 +226,7 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <RadioGroup
+            android:id="@+id/radioGroupPets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
@@ -218,6 +234,7 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/radioPetYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp_10"
@@ -226,6 +243,7 @@
                 android:text="Yes" />
 
             <RadioButton
+                android:id="@+id/radioPetNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_10"
@@ -249,6 +267,7 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <com.sparecode.yaaroz.view.CustomEditText
+            android:id="@+id/edtEditSchool"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_10"
@@ -272,6 +291,7 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <com.sparecode.yaaroz.view.CustomEditText
+            android:id="@+id/edtEditProfession"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_10"
@@ -295,39 +315,51 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <com.sparecode.yaaroz.view.CustomEditText
+            android:id="@+id/edtEditAboutme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_10"
             android:background="@drawable/blueradiusrectangle"
             android:ellipsize="end"
+            android:lines="3"
             android:maxLines="1"
             android:padding="@dimen/dp_10" />
 
-        <com.sparecode.yaaroz.view.CustomTextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearCompleteProfile"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_5"
-            android:drawablePadding="@dimen/dp_10"
             android:gravity="center"
-            android:padding="@dimen/dp_5"
-            android:text="Complete Full Profile"
-            android:textColor="#0074E4"
-            android:textSize="@dimen/sp_18"
-            app:customFont="Roboto-Regular.ttf" />
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/down_icon" />
+            <com.sparecode.yaaroz.view.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_5"
+                android:drawablePadding="@dimen/dp_10"
+                android:gravity="center"
+                android:padding="@dimen/dp_5"
+                android:text="Complete Full Profile"
+                android:textColor="#0074E4"
+                android:textSize="@dimen/sp_18"
+                app:customFont="Roboto-Regular.ttf" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/down_icon" />
+        </LinearLayout>
+
 
         <com.sparecode.yaaroz.view.CustomButton
-            android:layout_width="263dp"
-            android:layout_height="35dp"
-            android:layout_margin="@dimen/dp_20"
+            android:id="@+id/btnProfileSave"
+            android:layout_width="@dimen/dp_263"
+            android:layout_height="@dimen/dp_40"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/dp_20"
             android:background="@drawable/bluerectanglebox"
             android:padding="@dimen/dp_5"
             android:text="Save"

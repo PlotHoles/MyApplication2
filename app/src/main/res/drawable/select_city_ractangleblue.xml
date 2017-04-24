@@ -4,7 +4,6 @@
     <stroke
         android:color="@color/inSettingDarkblue"
         android:width="@dimen/dp_2"
-
         >
 
     </stroke>

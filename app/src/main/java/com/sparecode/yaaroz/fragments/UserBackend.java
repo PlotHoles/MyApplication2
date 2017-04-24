@@ -2,8 +2,10 @@ package com.sparecode.yaaroz.fragments;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
 import com.sparecode.yaaroz.interfaces.OnResponse;
 import com.sparecode.yaaroz.model.User;
+import com.sparecode.yaaroz.utils.DebugLog;
 import com.sparecode.yaaroz.webservice.GetRequest;
 import com.sparecode.yaaroz.webservice.ReqestParameter;
 import com.sparecode.yaaroz.webservice.RequestApi;
@@ -39,6 +41,26 @@ class UserBackend {
         });
 
     }
+
+    void testResponse() {
+        String str = "{ \"status\": 1, \"message\": \"Login Successful\", \"time\": \"04-04-2017 06:50:02\", \"data\": [ { \"id\": \"5\", \"fb_id\": \"109814332867215\", \"fname\": \"\", \"lname\": \"\", \"email\": \"sparecodecredential@gmail.com\", \"image\": \"sdf\", \"gender\": \"\", \"birthday\": \"\", \"nCityId\": \"2\", \"smoking\": \"0\", \"pets\": \"0\", \"school\": \"\", \"profession\": \"\", \"aboutme\": \"\", \"question\": \"\", \"age\": \"\" } ] }";
+        Gson gson = new Gson();
+        gson.fromJson(str, UserBackend.class);
+        DebugLog.e("JSON OBJ::");
+    }
+
+    void callUpdateProfile(String... vars) {
+
+    }
+
+ /*   @Override
+    public User deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+        JsonObject jsonObject = json.getAsJsonObject();
+        if (jsonObject.get("questions").isJsonArray()) {
+            jsonObject.remove("questions");
+        }
+        return new Gson().fromJson(jsonObject, User.class);
+    }*/
 
     interface UserProvider {
         void onUserUpdate(User user);

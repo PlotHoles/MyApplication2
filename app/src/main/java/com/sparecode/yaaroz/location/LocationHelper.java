@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -108,7 +107,7 @@ public class LocationHelper implements
     public void onLocationChanged(Location location) {
         //DebugLog.e("LOCATION:" + location);
         mCurrentLocation = location;
-        Toast.makeText(mContext, "LCOATION:" + location, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, "LCOATION:" + location, Toast.LENGTH_SHORT).show();
         locationProvider.onNewLcoationReceived(location);
     }
 

@@ -11,11 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sparecode.yaaroz.R;
+import com.sparecode.yaaroz.fragments.CompleteProfileFragment;
 import com.sparecode.yaaroz.fragments.EditProfileFragment;
 import com.sparecode.yaaroz.fragments.FavoritesFragment;
 import com.sparecode.yaaroz.fragments.InviteFriendsFragment;
@@ -58,12 +60,18 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
     TextView txtTitle;
     @Bind(R.id.activity_main)
     LinearLayout activityMain;
+
+    @Bind(R.id.imgToolbarBack)
+    ImageView imgToolbarBack;
     NetworkChangeReceiver mReceiver;
     IntentFilter mIntentFilter;
+
     public Toolbar getToolbar() {
         return toolbar;
     }
+
     public static boolean isCall;
+
     public void setToolbar(Toolbar toolbar) {
         this.toolbar = toolbar;
     }
@@ -79,6 +87,14 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
 
     public TextView getTxtTitle() {
         return txtTitle;
+    }
+
+    public void setImgToolbarBack(ImageView imgToolbarBack) {
+        this.imgToolbarBack = imgToolbarBack;
+    }
+
+    public ImageView getImgToolbarBack() {
+        return imgToolbarBack;
     }
 
     View view;
@@ -164,8 +180,12 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
     }
 
     @Override
-    public void openSelectCity() {
-        replaceFragment(new SelectCityFragment(), R.id.container, SelectCityFragment.class.getName(), true);
+    public void openSelectCity(boolean isFromLogin) {
+        if (isFromLogin) {
+            replaceFragment(new SelectCityFragment(true), R.id.container, SelectCityFragment.class.getName(), false);
+        } else {
+            replaceFragment(new SelectCityFragment(false), R.id.container, SelectCityFragment.class.getName(), true);
+        }
     }
 
     @Override
@@ -205,7 +225,12 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
 
     @Override
     public void openFavoriteScreen() {
-        replaceFragment(new FavoritesFragment(),R.id.container,FavoritesFragment.class.getName(),true);
+        replaceFragment(new FavoritesFragment(), R.id.container, FavoritesFragment.class.getName(), true);
+    }
+
+    @Override
+    public void openCompleteProfileFragment() {
+        replaceFragment(new CompleteProfileFragment(), R.id.container, CompleteProfileFragment.class.getName(), true);
     }
 
     @Override
@@ -215,6 +240,6 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
 
     @Override
     public void onInternetDisconnected(String msg) {
-        Toast.makeText(this,""+msg,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "" + msg, Toast.LENGTH_LONG).show();
     }
 }

@@ -21,8 +21,8 @@ public class ReqestParameter {
             object.put("method", "signup");
             object.put("email", vars[0]);
             object.put("image", vars[1]);
-            object.put("lat", vars[2]);
-            object.put("long", vars[3]);
+            //object.put("lat", vars[2]);
+            // object.put("long", vars[3]);
             object.put("fb_id", vars[4]);
             object.put("device_type", vars[5]);
             object.put("device_id", vars[6]);
@@ -36,6 +36,61 @@ public class ReqestParameter {
         JSONObject object = new JSONObject();
         try {
             object.put("method", "get_city");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+
+    public JSONObject toGetLocation(String cityId) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("method", "get_location");
+            object.put("nCityId", "" + cityId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+
+    public JSONObject toUserCitySelection(String cityId, String userId) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("method", "update_location");
+            object.put("nCityId", "" + cityId);
+            object.put("user_id", "" + userId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+
+    public JSONObject toGetQuestions() {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("method", "get_que");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+
+    public JSONObject toUpadateProfile(String... vars) {
+        JSONObject object = new JSONObject();
+        try {
+            //index.php/API/?data={"method":"update_profile","fname":"kenil","lname":"shah","smoking":"1","pets":"1","school":"yeaskjh","profession":"it","aboutme":"test","user_id":"2","questions":[{"qid":"1","aid":"1"},{"qid":"2","aid":"1"}]}
+            //profession,school,age,smoking,gender,pets,aboutme
+            object.put("method", "update_profile");
+            object.put("fname", "" + vars[0]);
+            object.put("lname", "" + vars[1]);
+            object.put("profession", "" + vars[2]);
+            object.put("school", "" + vars[3]);
+            object.put("age", "" + vars[4]);
+            object.put("smoking", "" + vars[5]);
+            object.put("pets", "" + vars[7]);
+            object.put("aboutme", "" + vars[8]);
+            object.put("user_id", "" + vars[9]);
+            object.put("questions", "" + vars[10]);
         } catch (JSONException e) {
             e.printStackTrace();
         }

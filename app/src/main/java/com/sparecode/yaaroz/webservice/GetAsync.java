@@ -6,14 +6,18 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.sparecode.yaaroz.application.Yaaroz;
 import com.sparecode.yaaroz.interfaces.OnResponse;
+import com.sparecode.yaaroz.model.CollectionAdapter;
+import com.sparecode.yaaroz.utils.DebugLog;
 
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import okhttp3.Request;
 import okhttp3.Response;
@@ -30,7 +34,6 @@ public class GetAsync<T> extends AsyncTask<String, Void, String> {
     private JSONObject jsonObject;
     private Class<T> clazz;
     private OnResponse<T> callback;
-
 
 
     public GetAsync(Context context, String url, JSONObject jsonObject, Class<T> clazz, OnResponse<T> callback) {
@@ -54,7 +57,7 @@ public class GetAsync<T> extends AsyncTask<String, Void, String> {
         try (Response response = Yaaroz.getRequestBuilder().getOkHttpClient().newCall(request).execute()) {
             if (response.isSuccessful()) {
                 String responseString = response.body().string();
-                Log.e(this.getClass().getName(), " ::: DATA IS ::: " + responseString);
+                //Log.e(this.getClass().getName(), " ::: DATA IS ::: " + responseString);
                 return responseString;
             }
         } catch (IOException e) {
@@ -71,13 +74,17 @@ public class GetAsync<T> extends AsyncTask<String, Void, String> {
 
     public void translate(String response) {
         if (response != null) {
-            GsonBuilder gson = new GsonBuilder();
+            response = response.replace("[]", "\"\"");
+            DebugLog.e("UPDATED RESPONSE::" + response);
+            Gson gson = new GsonBuilder().registerTypeHierarchyAdapter(Collection.class, new CollectionAdapter()).create();
             T typeClass = null;
             try {
-                typeClass = gson.create().fromJson(response, clazz);
+                typeClass = gson.fromJson(response, clazz);
                 callback.onSuccess(typeClass);
             } catch (JsonSyntaxException e) {
                 e.printStackTrace();
+                DebugLog.e("PARSING ERROR" + e);
+
                 callback.onError();
             }
         }

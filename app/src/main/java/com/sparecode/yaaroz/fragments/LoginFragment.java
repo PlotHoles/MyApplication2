@@ -35,6 +35,7 @@ import com.sparecode.yaaroz.permission.PiemissionsCallback;
 import com.sparecode.yaaroz.permission.PiemissionsRequest;
 import com.sparecode.yaaroz.permission.PiemissionsUtils;
 import com.sparecode.yaaroz.utils.DebugLog;
+import com.sparecode.yaaroz.utils.Prefs;
 import com.sparecode.yaaroz.view.CustomTextView;
 
 import org.json.JSONException;
@@ -84,20 +85,8 @@ public class LoginFragment extends BaseFragment implements LocationProvider, Use
         request = new PiemissionsRequest(PERMISSIONS_CODE, PERMISSIONS);
 
 
-        request.setCallback(new PiemissionsCallback() {
-            @Override
-            public void onGranted() {
-
-            }
-
-            @Override
-            public boolean onDenied(HashMap<String, Boolean> rationalizablePermissions) {
-                DebugLog.e("Permission Denied");
-                return false;
-            }
-        });
-        PiemissionsUtils.requestPermission(request);
         callbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().logOut();
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
@@ -115,15 +104,17 @@ public class LoginFragment extends BaseFragment implements LocationProvider, Use
                                             String profilePicUrl = URLEncoder.encode(object.getJSONObject("picture").getJSONObject("data").getString("url"), "utf-8");
                                             Log.e("PIC:", "" + profilePicUrl);
                                             if (location != null) {
-                                                userBackend.callSignup(fbModel.getEmail(), URLEncoder.encode(fbModel.getPicture().getData().getUrl(),"UTF-8"), String.valueOf(location.getLatitude()), String.valueOf(location.getLongitude()), fbModel.getId(), "123456");
+                                                userBackend.callSignup(fbModel.getEmail(), URLEncoder.encode(fbModel.getPicture().getData().getUrl(), "UTF-8"), String.valueOf(location.getLatitude()), String.valueOf(location.getLongitude()), fbModel.getId(), "123456");
                                             } else {
-                                                new SweetAlertDialog(getActivity()).setCustomImage(R.drawable.yaaroz_logo).setTitleText("Please check your location service !").show();
+                                                userBackend.callSignup(fbModel.getEmail(), URLEncoder.encode(fbModel.getPicture().getData().getUrl(), "UTF-8"), "0", "0", fbModel.getId(), "123456");
                                             }
 
                                         } catch (JSONException e) {
+                                            DebugLog.e("JEXCEPTION" + e);
                                             e.printStackTrace();
                                         } catch (UnsupportedEncodingException e) {
                                             e.printStackTrace();
+                                            DebugLog.e("JEXCEPTION" + e);
                                         }
                                         // Application code
                                     }
@@ -142,16 +133,30 @@ public class LoginFragment extends BaseFragment implements LocationProvider, Use
                     @Override
                     public void onError(FacebookException exception) {
                         // App code
-                        DebugLog.e("" + exception.toString());
+                        DebugLog.e("EXX" + exception.toString());
                     }
                 });
+
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        locationHelper = new LocationHelper(getActivity(), this);
+        printKeyHash(getActivity());
+        request.setCallback(new PiemissionsCallback() {
+            @Override
+            public void onGranted() {
+                locationHelper = new LocationHelper(getActivity(), LoginFragment.this);
+            }
+
+            @Override
+            public boolean onDenied(HashMap<String, Boolean> rationalizablePermissions) {
+                DebugLog.e("Permission Denied" + rationalizablePermissions);
+                return false;
+            }
+        });
+        PiemissionsUtils.requestPermission(request);
         userBackend = new UserBackend(getActivity(), this);
     }
 
@@ -238,8 +243,10 @@ public class LoginFragment extends BaseFragment implements LocationProvider, Use
 
     @Override
     public void onUserUpdate(User user) {
-        Log.e("USER:", "" + user.getData().getFbId());
-        mainNavInterface.openSelectCity();
+        //Log.e("USER:", "" + user.getData().getFbId());
+        Log.e("USER JSON::", "" + new Gson().toJson(user));
+        Prefs.putString("user", new Gson().toJson(user));
+        mainNavInterface.openSelectCity(true);
     }
 
     @Override
