@@ -55,4 +55,7 @@
     <color name="material_deep_teal_20">#ff80cbc4</color>
 
     <color name="material_deep_teal_50">#ff009688</color>
+
+    <color name="custom_progress_bg_color">#EEEEEE</color>
+    <color name="custom_progress_message_color">#6D6D6D</color>
 </resources>

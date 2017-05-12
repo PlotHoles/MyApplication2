@@ -1,6 +1,5 @@
 package com.sparecode.yaaroz.fragments;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -23,7 +22,6 @@ import butterknife.ButterKnife;
 /**
  * Created by prima on 30/1/17.
  */
-@SuppressLint("ValidFragment")
 public class RoommateMatchesFragment extends BaseFragment {
 
     int chatList;

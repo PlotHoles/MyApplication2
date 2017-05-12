@@ -31,4 +31,5 @@ public class CityData {
     public void setSCityName(String sCityName) {
         this.sCityName = sCityName;
     }
+
 }

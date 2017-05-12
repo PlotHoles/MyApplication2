@@ -75,6 +75,63 @@ public class ReqestParameter {
         return object;
     }
 
+    public JSONObject toGetRoomMatches(String... vars) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("method", "room_match");
+            object.put("nCityId", vars[0]);
+            object.put("nLocationId", vars[1]);
+        } catch (JSONException e) {
+        }
+        return object;
+    }
+    public JSONObject toFilterRoom(String... vars) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("method", "filter_room");
+            object.put("sLength", vars[0]);
+            object.put("sRent", vars[1]);
+            object.put("startdate", vars[2]);
+            object.put("enddate", vars[3]);
+            object.put("sFurnish", vars[4]);
+            object.put("sBathroom", vars[5]);
+            object.put("sSmoking", vars[6]);
+            object.put("sPets", vars[7]);
+            object.put("sLookingForAge", vars[8]);
+            object.put("sLookingForAgeMax", vars[9]);
+            object.put("MinLength", vars[10]);
+            object.put("MaxLength", vars[11]);
+            object.put("MinBudget", vars[12]);
+            object.put("MaxBudget", vars[13]);
+        } catch (JSONException e) {
+        }
+        return object;
+    }
+    public List<Pair<String, String>> toAddroom(String... vars) {
+        List<Pair<String, String>> pairList = new ArrayList<>();
+        pairList.add(new Pair<>("nCityId", vars[0]));
+        pairList.add(new Pair<>("sAddress", vars[1]));
+        pairList.add(new Pair<>("sDesc", vars[2]));
+        pairList.add(new Pair<>("sRent", vars[3]));
+        pairList.add(new Pair<>("sRoommates", vars[4]));
+        pairList.add(new Pair<>("sGender", vars[5]));
+        pairList.add(new Pair<>("sLength", vars[6]));
+        pairList.add(new Pair<>("sFurnish", vars[7]));
+        pairList.add(new Pair<>("sBathroom", vars[8]));
+        pairList.add(new Pair<>("sSmoking", vars[9]));
+        pairList.add(new Pair<>("sPets", vars[10]));
+        pairList.add(new Pair<>("sLookingForGender", vars[11]));
+        pairList.add(new Pair<>("sLookingForAge", vars[12]));
+        pairList.add(new Pair<>("dAvailableDate", vars[13]));
+        pairList.add(new Pair<>("nLocationId", vars[14]));
+        pairList.add(new Pair<>("nUserId", vars[15]));
+        pairList.add(new Pair<>("sLookingForAgeMax", vars[16]));
+        pairList.add(new Pair<>("sLat", vars[17]));
+        pairList.add(new Pair<>("sLong", vars[18]));
+
+
+        return pairList;
+    }
     public JSONObject toUpadateProfile(String... vars) {
         JSONObject object = new JSONObject();
         try {
@@ -87,16 +144,25 @@ public class ReqestParameter {
             object.put("school", "" + vars[3]);
             object.put("age", "" + vars[4]);
             object.put("smoking", "" + vars[5]);
-            object.put("pets", "" + vars[7]);
-            object.put("aboutme", "" + vars[8]);
-            object.put("user_id", "" + vars[9]);
-            object.put("questions", "" + vars[10]);
+            object.put("pets", "" + vars[6]);
+            object.put("aboutme", "" + vars[7]);
+            object.put("user_id", "" + vars[8]);
+            object.put("questions", "" + vars[9]);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return object;
     }
-
+    public JSONObject toGetRoomDetail(String id) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("method", "room_details");
+            object.put("nRoomId", "" + id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
     //login_with_fb
     public JSONObject toFbLogin(String... vars) {
         JSONObject object = new JSONObject();

@@ -49,8 +49,22 @@ class UserBackend {
         DebugLog.e("JSON OBJ::");
     }
 
-    void callUpdateProfile(String... vars) {
+    void callUpdateProfile(String fname, String lname, String profession, String school, String age, String smoking, String pets, String about, String userid, String questions) {
+        new GetRequest<User>().toGetRequest(mContext, RequestApi.BASEURL, new ReqestParameter().toUpadateProfile(fname, lname, profession, school, age, smoking, pets, about, userid, String.valueOf(questions)), User.class, new OnResponse<User>() {
+            @Override
+            public void onSuccess(User user) {
+                if (user.getStatus() == 0) {
+                    userProvider.onFailure(user.getMessage());
+                } else {
+                    userProvider.onUserUpdate(user);
+                }
+            }
 
+            @Override
+            public void onError() {
+                userProvider.onFailure("Please try again !!");
+            }
+        });
     }
 
  /*   @Override

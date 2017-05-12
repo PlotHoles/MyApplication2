@@ -45,4 +45,19 @@
 
     <dimen name="progress_circle_radius">34dp</dimen>
     <dimen name="dp_263">263dp</dimen>
+    <dimen name="thumbnail_width">140dp</dimen>
+    <dimen name="margin_1">1dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_32">32dp</dimen>
+    <dimen name="image_height_portrait">220dp</dimen>
+    <dimen name="image_height_landscape">110dp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="margin_56">56dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
 </resources>

@@ -22,6 +22,7 @@
 
 
         <com.sparecode.yaaroz.view.CustomButton
+            android:id="@+id/btnRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_5"
@@ -37,6 +38,7 @@
 
 
         <com.sparecode.yaaroz.view.CustomButton
+            android:id="@+id/btnRoommates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_5"
@@ -51,6 +53,7 @@
             app:customFont="Roboto-Regular.ttf" />
 
         <com.sparecode.yaaroz.view.CustomButton
+            android:id="@+id/btnListroom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_5"

@@ -113,6 +113,7 @@
             >
 
             <com.sparecode.yaaroz.view.CustomTextView
+                android:id="@+id/startdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -132,6 +133,7 @@
                 android:textSize="@dimen/sp_17" />
 
             <com.sparecode.yaaroz.view.CustomTextView
+                android:id="@+id/enddate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -154,6 +156,7 @@
             android:textSize="@dimen/sp_17" />
 
         <RadioGroup
+            android:id="@+id/furnishedradiogroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -202,6 +205,7 @@
             android:textSize="@dimen/sp_17" />
 
         <RadioGroup
+            android:id="@+id/bathroomradiogroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -250,6 +254,7 @@
             android:textSize="@dimen/sp_17" />
 
         <RadioGroup
+            android:id="@+id/smokingradiogroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -298,6 +303,7 @@
             android:textSize="@dimen/sp_17" />
 
         <RadioGroup
+            android:id="@+id/petsradiogroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -338,6 +344,7 @@
         </RadioGroup>
 
         <com.sparecode.yaaroz.view.CustomButton
+            android:id="@+id/btncontinue"
             android:layout_width="210dp"
             android:layout_height="@dimen/dp_40"
             android:layout_gravity="center"
@@ -350,6 +357,7 @@
             android:textSize="@dimen/sp_17" />
 
         <com.sparecode.yaaroz.view.CustomButton
+            android:id="@+id/btnReset"
             android:layout_width="210dp"
             android:layout_height="@dimen/dp_40"
             android:layout_gravity="center"

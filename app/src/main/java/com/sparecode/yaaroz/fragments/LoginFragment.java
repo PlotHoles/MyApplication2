@@ -67,11 +67,8 @@ public class LoginFragment extends BaseFragment implements LocationProvider, Use
     private Location location;
     private static final int PERMISSIONS_CODE = 1337;
     private static final String[] PERMISSIONS = new String[]{
-            Manifest.permission.INTERNET,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_CONTACTS,
-            Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CALL_PHONE
-
+            Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION
     };
     PiemissionsRequest request;
     LocationHelper locationHelper;

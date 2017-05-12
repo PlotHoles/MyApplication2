@@ -9,6 +9,8 @@ import com.sparecode.yaaroz.webservice.GetRequest;
 import com.sparecode.yaaroz.webservice.ReqestParameter;
 import com.sparecode.yaaroz.webservice.RequestApi;
 
+import java.util.ArrayList;
+
 /**
  * Created by Sanket on 4/5/2017.
  */
@@ -20,6 +22,14 @@ public class ListARoomBackend {
     public ListARoomBackend(Context mContext, ListARoomDataProvider listARoomDataProvider) {
         this.mContext = mContext;
         this.listARoomDataProvider = listARoomDataProvider;
+    }
+
+    public void postRoom(String nCityId, String nLocationId, String address, String desc, String rent, String roommates, String gender, String sLength, String furnish, String bathroom, String smoking, String pets, String lookingforgender, String lookingforage, String availdate) {
+
+    }
+
+    public void postRoomWithImages(String nCityId, String nLocationId, String address, String desc, String rent, String roommates, String gender, String sLength, String furnish, String bathroom, String smoking, String pets, String lookingforgender, String lookingforage, String availdate, ArrayList<String> images) {
+
     }
 
     public void getCity() {

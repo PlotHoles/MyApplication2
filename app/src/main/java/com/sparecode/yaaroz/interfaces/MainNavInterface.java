@@ -1,7 +1,6 @@
 package com.sparecode.yaaroz.interfaces;
 
 import com.sparecode.yaaroz.model.RecentChatData;
-import com.sparecode.yaaroz.model.RoommatesMatchesData;
 
 /**
  * Created by master on 29-12-2016.
@@ -20,7 +19,7 @@ public interface MainNavInterface {
 
     void openRoomMatchesScreen();
 
-    void openRoomDetailsPage();
+    void openRoomDetailsPage(String id);
 
     void openEditProfilePage();
 
@@ -28,7 +27,9 @@ public interface MainNavInterface {
 
     void openRecentChat(RecentChatData recentChatData);
 
-    void openRoommateMatches(RoommatesMatchesData roommatesMatchesData);
+    //void openRoommateMatches(RoommatesMatchesData roommatesMatchesData);
+
+    void openRoommateMatches();
 
     void openPersonChat();
 
@@ -41,5 +42,10 @@ public interface MainNavInterface {
     void openRoommateMatchesFiler();
 
     void openFavoriteScreen();
+
     void openCompleteProfileFragment();
+
+    void openMOreScreen();
+
+    void openRoomMate();
 }

@@ -51,7 +51,8 @@ public class SplashFragment extends BaseFragment {
                     if (getUser() != null) {
                         //mainNavInterface.openSelectCategoryScreen();
                         if (yaarozDatabaseHelper.isUserHasSelectedCity(getUser().getData().getId())) {
-                            mainNavInterface.openListARoom();
+                            //mainNavInterface.openListARoom();
+                            mainNavInterface.openSelectCategoryScreen();
                         } else {
                             mainNavInterface.openSelectCity(true);
                         }
@@ -101,6 +102,7 @@ public class SplashFragment extends BaseFragment {
     @Override
     public void setToolbarForFragment() {
         ((BaseActivity) getActivity()).getAppbar().setVisibility(View.GONE);
+        ((BaseActivity)getActivity()).getTabLayout().setVisibility(View.GONE);
 
     }
 

@@ -100,8 +100,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_5"
             android:background="@drawable/blueradiusrectangle"
-            android:editable="false"
-            android:focusable="false"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="@dimen/dp_10"

@@ -21,6 +21,7 @@ public interface RequestApi {
     String UPDATE_DETAILS = "UpdateDeviceDetails";
     String HISTORY_CHAT = "getConversation";
     //String BASEURL = "http://192.168.2.16/projects/wilo/api/";
-    String BASEURL = "http://yaaroz.com/admin/index.php/API/?data=";
+    String BASEURL = "http://yaaroz.com/index.php/admin/API/?data=";
+    String POST_ROOM = "http://yaaroz.com/index.php/admin/API/add_room";
 
 }

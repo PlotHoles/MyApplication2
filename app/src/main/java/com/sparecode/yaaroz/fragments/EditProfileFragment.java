@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.sparecode.yaaroz.R;
@@ -63,8 +64,9 @@ public class EditProfileFragment extends BaseFragment implements UserBackend.Use
     CustomEditText edtEditAboutme;
     @Bind(R.id.btnProfileSave)
     CustomButton btnProfileSave;
-
-    private String smoking = "", pets = "", school = "", profession = "", aboutme = "", age = "", gender = "";
+    String selectionOfSmoking,selectionOfpets;
+    private  String age;
+    private String smoking = "", pets = "", school = "", profession = "", aboutme = "", gender = "";
     private UserBackend userBackend;
     public static JSONArray jsonArray;
 
@@ -113,6 +115,9 @@ public class EditProfileFragment extends BaseFragment implements UserBackend.Use
                 } else {
                     smoking = "no";
                 }
+                RadioButton radioButton = (RadioButton) view.findViewById(checkedId);
+                selectionOfSmoking = (String) radioButton.getText();
+                Toast.makeText(getActivity(),selectionOfSmoking, Toast.LENGTH_SHORT).show();
             }
         });
         radioGroupPets.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -123,6 +128,9 @@ public class EditProfileFragment extends BaseFragment implements UserBackend.Use
                 } else {
                     pets = "no";
                 }
+                RadioButton radioButton = (RadioButton) view.findViewById(checkedId);
+                selectionOfpets = (String) radioButton.getText();
+                Toast.makeText(getActivity(),selectionOfpets, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -183,9 +191,9 @@ public class EditProfileFragment extends BaseFragment implements UserBackend.Use
         if (!edtEditFname.getText().toString().trim().isEmpty()) {
             if (!edtEditLname.getText().toString().trim().isEmpty()) {
                 if (jsonArray != null) {
-                    userBackend.callUpdateProfile(edtEditFname.getText().toString(), edtEditLname.getText().toString(), edtEditProfession.getText().toString(), edtEditSchool.getText().toString(), age, smoking, gender, pets, edtEditAboutme.getText().toString(), user.getData().getId(), jsonArray.toString());
+                    userBackend.callUpdateProfile(edtEditFname.getText().toString(), edtEditLname.getText().toString(), edtEditProfession.getText().toString(), edtEditSchool.getText().toString(), age, selectionOfSmoking, selectionOfpets,edtEditAboutme.getText().toString(),user.getData().getId(), jsonArray.toString());
                 } else {
-                    userBackend.callUpdateProfile(edtEditFname.getText().toString(), edtEditLname.getText().toString(), edtEditProfession.getText().toString(), edtEditSchool.getText().toString(), age, smoking, gender, pets, edtEditAboutme.getText().toString(), user.getData().getId());
+                    userBackend.callUpdateProfile(edtEditFname.getText().toString(), edtEditLname.getText().toString(), edtEditProfession.getText().toString(), edtEditSchool.getText().toString(), age,selectionOfSmoking, selectionOfpets, edtEditAboutme.getText().toString(), user.getData().getId(),"");
                 }
             } else {
                 new SweetAlertDialog(getActivity()).setTitleText("Please enter Last Name").show();
@@ -197,6 +205,10 @@ public class EditProfileFragment extends BaseFragment implements UserBackend.Use
 
     @Override
     public void onUserUpdate(User user) {
+        if (getActivity() != null)
+        {
+            Toast.makeText(getActivity(),user.getMessage(),Toast.LENGTH_SHORT).show();
+        }
 
     }
 

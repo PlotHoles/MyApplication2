@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -24,10 +25,12 @@ import com.sparecode.yaaroz.fragments.InviteFriendsFragment;
 import com.sparecode.yaaroz.fragments.ListARoomFragment;
 import com.sparecode.yaaroz.fragments.LoginFragment;
 import com.sparecode.yaaroz.fragments.MapScreenFragment;
+import com.sparecode.yaaroz.fragments.MoreOptionsFragment;
 import com.sparecode.yaaroz.fragments.PersonChatFragment;
 import com.sparecode.yaaroz.fragments.RecentChatFragment;
 import com.sparecode.yaaroz.fragments.RoomDetailsFragment;
 import com.sparecode.yaaroz.fragments.RoomMatchesFragment;
+import com.sparecode.yaaroz.fragments.RoomMateFragment;
 import com.sparecode.yaaroz.fragments.RoommatchesFilterFragment;
 import com.sparecode.yaaroz.fragments.RoommateMatchesFilterFragment;
 import com.sparecode.yaaroz.fragments.RoommateMatchesFragment;
@@ -37,7 +40,6 @@ import com.sparecode.yaaroz.fragments.SplashFragment;
 import com.sparecode.yaaroz.interfaces.MainNavInterface;
 import com.sparecode.yaaroz.interfaces.NetworkChangeListener;
 import com.sparecode.yaaroz.model.RecentChatData;
-import com.sparecode.yaaroz.model.RoommatesMatchesData;
 import com.sparecode.yaaroz.receivers.NetworkChangeReceiver;
 import com.sparecode.yaaroz.utils.DebugLog;
 
@@ -65,6 +67,16 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
     ImageView imgToolbarBack;
     NetworkChangeReceiver mReceiver;
     IntentFilter mIntentFilter;
+    @Bind(R.id.tabLayout)
+    TabLayout tabLayout;
+
+    public TabLayout getTabLayout() {
+        return tabLayout;
+    }
+
+    public void setTabLayout(TabLayout tabLayout) {
+        this.tabLayout = tabLayout;
+    }
 
     public Toolbar getToolbar() {
         return toolbar;
@@ -170,8 +182,8 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
     }
 
     @Override
-    public void openRoomDetailsPage() {
-        replaceFragment(new RoomDetailsFragment(), R.id.container, RoomDetailsFragment.class.getName(), true);
+    public void openRoomDetailsPage(String id) {
+        replaceFragment(new RoomDetailsFragment(id), R.id.container, RoomDetailsFragment.class.getName(), true);
     }
 
     @Override
@@ -193,10 +205,16 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
         replaceFragment(new RecentChatFragment(recentChatData), R.id.container, RecentChatFragment.class.getName(), true);
     }
 
-    @Override
+    /*@Override
     public void openRoommateMatches(RoommatesMatchesData roommatesMatchesData) {
         replaceFragment(new RoommateMatchesFragment(roommatesMatchesData), R.id.container, RoommateMatchesFragment.class.getName(), true);
+    }*/
+
+    @Override
+    public void openRoommateMatches() {
+        replaceFragment(new RoommateMatchesFragment(), R.id.container, RoommateMatchesFragment.class.getName(), true);
     }
+
 
     @Override
     public void openPersonChat() {
@@ -234,6 +252,17 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
     }
 
     @Override
+    public void openMOreScreen() {
+        replaceFragment(new MoreOptionsFragment(),R.id.container,MoreOptionsFragment.class.getName(),true);
+    }
+
+    @Override
+    public void openRoomMate() {
+        replaceFragment(new RoomMateFragment(),R.id.container,RoomMateFragment.class.getName(),true);
+    }
+
+
+    @Override
     public void onInternetConnected() {
         DebugLog.e("KEEP CALLING WS !!");
     }
@@ -242,4 +271,6 @@ public class BaseActivity extends AppCompatActivity implements MainNavInterface,
     public void onInternetDisconnected(String msg) {
         Toast.makeText(this, "" + msg, Toast.LENGTH_LONG).show();
     }
+
+
 }
